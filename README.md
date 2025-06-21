@@ -3,7 +3,7 @@
 DISCLAIMER:
 This project is not affiliated with or endorsed by the College Board, which owns the SAT trademark. This tool is for educational and personal use only.
 
-SAT_SeatFinder is a Python-based application to quickly find available and nearby SAT testing seats. It is optimized for mobile use and supports iOS widgets via Python mobile IDEs like Pyto.
+SAT_SeatFinder is a Python-based script to quickly find available and nearby SAT testing seats. It is optimized for mobile use and supports iOS widgets via Python mobile IDEs like Pyto.
 
 Usage:
 Download the script: satcenterfinder.py
