@@ -1,21 +1,47 @@
-# SAT_SeatFinder
+# SAT Seat Finder
 
-DISCLAIMER:
-This project is not affiliated with or endorsed by the College Board, which owns the SAT trademark. This tool is for educational and personal use only.
+> **Disclaimer**  
+> This project is not affiliated with or endorsed by the College Board, which owns the SAT® trademark. This tool is intended for educational and personal use only. It is also not affiliated with or endorsed by Pyto or the Pyto IDE. This tool is intended for educational and personal use only.
 
-SAT_SeatFinder is a Python-based script to quickly find available and nearby SAT testing seats. It is optimized for mobile use and supports iOS widgets via Python mobile IDEs like Pyto.
+## Overview
 
-Usage:
-Download the script: satcenterfinder.py
+**SAT_SeatFinder** is a lightweight Python script designed to help users quickly check for available SAT testing seats near a given location. It is optimized for use on mobile devices and supports home screen widgets through Python IDEs like **Pyto** on iOS.
 
-Open the script in a mobile Python runner (e.g., Pyto IDE)
+## Features
 
-Locate the # Inputs section in the script and update:
+- Simple configuration with minimal code edits  
+- Mobile-friendly, ideal for on-the-go use  
+- Optional widget support using **Pyto** for iOS  
 
-test_date → your desired SAT date (format: "YYYY-MM-DD")
+## Requirements
 
-zipcode, state, country → your local info
+- iOS device with the [**Pyto** IDE](https://pyto.app) installed  
+- Internet access for API requests  
 
-Run the script in the Python environment
+## Getting Started
 
-(Optional) Set up a widget in your Python IDE to monitor seat availability from your home screen
+1. **Download the script**  
+   Save the file [`satcenterfinder.py`](./satcenterfinder.py) to your mobile device.
+
+2. **Open in Pyto**  
+   Launch the Pyto app and open the script.
+
+3. **Configure your inputs**  
+   In the script, find the section marked `# Inputs` and update the following variables:
+   ```python
+   test_date = "YYYY-MM-DD"      # e.g., "2025-10-04"
+   zipcode = "12345"             # your ZIP code
+   state = "WA"                  # your state abbreviation
+   country = "US"                # country code
+   ```
+
+4. **Run the script**  
+   Tap the play button in Pyto to execute the script and view seat availability.
+
+5. **(Optional) Set up a widget**  
+   Pyto supports adding scripts as widgets to your iOS home screen. Use this feature to monitor seat availability without opening the app.
+
+## Notes
+
+- The script uses public test center availability data and may be subject to rate limits or access changes.
+- Be sure to double-check availability and register on the official [College Board](https://satsuite.collegeboard.org/sat) site.
