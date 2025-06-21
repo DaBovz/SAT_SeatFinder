@@ -6,17 +6,21 @@ BACKGROUND = wd.Color.rgb(255/255, 250/255, 227/255)
 FOREGROUND = wd.Color.rgb(75/255, 72/255, 55/255)
 
 def find_available_test_centers(date, zip_code, country, state):
-url = f"https://aru-test-center-search.collegeboard.org/prod/test-centers?date={date}&zip={zip_code}&country={country}"
-response = requests.get(url)
+    url = f"https://aru-test-center-search.collegeboard.org/prod/test-centers?date={date}&zip={zip_code}&country={country}"
+    response = requests.get(url)
 
-if response.status_code == 200:
-test_centers = response.json()
-available_centers = [(center["name"], center["address1"], center["state"], center["distance"]) for center in test_centers if center["seatAvailability"] and center["state"] == state]
-available_centers.sort(key=lambda x: x[3]) # Sort by distance
-return available_centers
-else:
-print(f"Error: {response.status_code}")
-return []
+    if response.status_code == 200:
+        test_centers = response.json()
+        available_centers = [
+            (center["name"], center["address1"], center["state"], center["distance"])
+            for center in test_centers
+            if center["seatAvailability"] and center["state"] == state
+        ]
+        available_centers.sort(key=lambda x: x[3])  # Sort by distance
+        return available_centers
+    else:
+        print(f"Error: {response.status_code}")
+        return []
 
 # Inputs
 date = "2025-08-23"
@@ -35,9 +39,11 @@ layout_extralarge = widget.extra_large_layout
 now = datetime.now()
 now_text = now.strftime("%H:%M")
 title_text = wd.Text(
-text=f"Available centers for {date} SAT test as of {now_text}",
-font=wd.Font("AmericanTypewriter", 10),
-color=FOREGROUND)
+    text=f"Available centers for {date} SAT test as of {now_text}",
+    font=wd.Font("AmericanTypewriter", 10),
+    color=FOREGROUND
+)
+
 layout_small.add_row([title_text])
 layout_medium.add_row([title_text])
 layout_large.add_row([title_text])
@@ -52,32 +58,38 @@ layout_extralarge.add_vertical_divider()
 available_centers = find_available_test_centers(date, zip_code, country, state)
 
 if available_centers:
-for name, address, state, distance in available_centers:
-center_text = wd.Text(
-text=f"{name}, {distance} miles",
-font=wd.Font("AmericanTypewriter", 9),
-color=FOREGROUND)
-layout_small.add_row([center_text])
-center_text = wd.Text(
-text=f"{name}, {distance} miles",
-font=wd.Font("AmericanTypewriter", 9),
-color=FOREGROUND)
-layout_medium.add_row([center_text])
-center_text = wd.Text(
-text=f"{name}, {address}, {distance} miles",
-font=wd.Font("AmericanTypewriter", 9),
-color=FOREGROUND)
-layout_large.add_row([center_text])
-layout_extralarge.add_row([center_text])
+    for name, address, state, distance in available_centers:
+        center_text_small = wd.Text(
+            text=f"{name}, {distance} miles",
+            font=wd.Font("AmericanTypewriter", 9),
+            color=FOREGROUND
+        )
+        layout_small.add_row([center_text_small])
+
+        center_text_medium = wd.Text(
+            text=f"{name}, {distance} miles",
+            font=wd.Font("AmericanTypewriter", 9),
+            color=FOREGROUND
+        )
+        layout_medium.add_row([center_text_medium])
+
+        center_text_large = wd.Text(
+            text=f"{name}, {address}, {distance} miles",
+            font=wd.Font("AmericanTypewriter", 9),
+            color=FOREGROUND
+        )
+        layout_large.add_row([center_text_large])
+        layout_extralarge.add_row([center_text_large])
 else:
-error_text = wd.Text(
-text="No test centers with available seats found.",
-font=wd.Font("AmericanTypewriter", 18),
-color=FOREGROUND)
-layout_small.add_row([error_text])
-layout_medium.add_row([error_text])
-layout_large.add_row([error_text])
-layout_extralarge.add_row([error_text])
+    error_text = wd.Text(
+        text="No test centers with available seats found.",
+        font=wd.Font("AmericanTypewriter", 18),
+        color=FOREGROUND
+    )
+    layout_small.add_row([error_text])
+    layout_medium.add_row([error_text])
+    layout_large.add_row([error_text])
+    layout_extralarge.add_row([error_text])
 
 layout_small.set_background_color(BACKGROUND)
 layout_medium.set_background_color(BACKGROUND)
