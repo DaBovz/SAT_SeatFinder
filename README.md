@@ -1,7 +1,7 @@
 # SAT Seat Finder
 
 > **Disclaimer**  
-> This project is not affiliated with or endorsed by the College Board, which owns the SAT® trademark. This tool is intended for educational and personal use only. It is also not affiliated with or endorsed by Pyto or the Pyto IDE. This tool is intended for educational and personal use only.
+> This project is not affiliated with or endorsed by the College Board, which owns the SAT® trademark. It is also not affiliated with or endorsed by Pyto or the Pyto IDE. This tool is intended for educational and personal use only.
 
 ## Overview
 
@@ -20,13 +20,14 @@
 
 ## Getting Started
 
-1. **Download the script**  
-   Save the file [`satcenterfinder.py`](./satcenterfinder.py) to your mobile device.
+1. **Open Pyto**  
+   Launch the Pyto app.
 
-2. **Open in Pyto**  
-   Launch the Pyto app and open the script.
+1. **Create script**  
 
-3. **Configure your inputs**  
+   Create a new blank script in Pyto and copy&paste [`satcenterfinder.py`](./satcenterfinder.py) to it. 
+
+1. **Configure your inputs**  
    In the script, find the section marked `# Inputs` and update the following variables:
    ```python
    test_date = "YYYY-MM-DD"      # e.g., "2025-10-04"
@@ -35,12 +36,19 @@
    country = "US"                # country code
    ```
 
-4. **Run the script**  
+1. **Run the script**  
    Tap the play button in Pyto to execute the script and view seat availability.
 
-5. **(Optional) Set up a widget**  
-   Pyto supports adding scripts as widgets to your iOS home screen. Use this feature to monitor seat availability without opening the app.
+1. **Set up widget**  
+   Go to home screen and add new Pyto widge with the script. The widget will be refreshed with available test centers every 30 minutes by default.
 
+1. **(Optional) Change widget refresh time**   
+   In the script, you may change the refresh time of the widget by changing the next reload time interval from 30 minutes to something else. 
+   ```python
+   wd.schedule_next_reload(timedelta(minutes=30))
+   wd.show_widget(widget)
+   ```
+   (Note: Setting the time interval to a value too small may lead to the widget not updating properly.)
 ## Notes
 
 - The script uses public test center availability data and may be subject to rate limits or access changes.
