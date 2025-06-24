@@ -11,37 +11,34 @@
 
 ## 🔹 Option 1: Standard Script (`satcenterfinder.py`)
 
-This is the main version of the script. It runs directly in the Pyto console and is the most reliable way to use this tool.
+This is the main version of the script and is compatible with any Python environment (desktop, terminal, mobile app, etc.).
 
 ### Features
 
-- Simple configuration with minimal code edits  
-- Prints results directly to the console  
-- Reliable performance in the Pyto app  
+- No dependencies beyond Python 3  
+- Prints results directly to the terminal/console  
+- Works on macOS, Windows, Linux, iOS (with Python apps), and Android  
 
 ### Requirements
 
-- Program to run Python scripts
+- Python 3.7+  
 - Internet access for API requests  
 
 ### Getting Started
 
-1. **Open Pyto**  
-   Launch the Pyto app on your iOS device.
+1. **Download the script**  
+   Save [`satcenterfinder.py`](./satcenterfinder.py) to your local machine or device.
 
-2. **Create a new script**  
-   Copy and paste the contents of [`satcenterfinder.py`](./satcenterfinder.py) into a new script.
-
-3. **Configure your inputs**  
-   Find the section marked `# Inputs` and update the following variables:
+2. **Configure your inputs**  
+   Open the script in any code editor and find the section marked `# Inputs`. Update the following:
    ```python
    test_date = "YYYY-MM-DD"      # e.g., "2025-10-04"
    zipcode = "12345"             # your ZIP code
    state = "WA"                  # your state abbreviation
-   country = "US"                # country code
+   country = "US"                # usually "US"
    
 4. **Run the script**  
-   Run the script in Pyto to see available centers printed in the console.
+   Run the script using the python environment
 
 ---
 
