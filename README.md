@@ -5,50 +5,75 @@
 
 ## Overview
 
-**SAT_SeatFinder** is a lightweight Python script designed to help users quickly check for available SAT testing seats near a given location. It is optimized for use on mobile devices and supports home screen widgets through Python IDEs like **Pyto** on iOS.
+**SAT_SeatFinder** is a lightweight Python tool that helps you check for SAT testing seat availability near a given ZIP code and date. It supports both standard script execution and optional widget integration on iOS using **Pyto**.
 
-## Features
+---
+
+## 🔹 Option 1: Standard Script (`satcenterfinder.py`)
+
+This is the main version of the script. It runs directly in the Pyto console and is the most reliable way to use this tool.
+
+### Features
 
 - Simple configuration with minimal code edits  
-- Mobile-friendly, ideal for on-the-go use  
-- Optional widget support using **Pyto** for iOS  
+- Prints results directly to the console  
+- Reliable performance in the Pyto app  
 
-## Requirements
+### Requirements
 
-- iOS device with the [**Pyto** IDE](https://pyto.app) installed  
+- Program to run Python scripts
 - Internet access for API requests  
 
-## Getting Started
+### Getting Started
 
 1. **Open Pyto**  
-   Launch the Pyto app.
+   Launch the Pyto app on your iOS device.
 
-1. **Create script**  
+2. **Create a new script**  
+   Copy and paste the contents of [`satcenterfinder.py`](./satcenterfinder.py) into a new script.
 
-   Create a new blank script in Pyto and copy&paste [`satcenterfinder.py`](./satcenterfinder.py) to it. 
-
-1. **Configure your inputs**  
-   In the script, find the section marked `# Inputs` and update the following variables:
+3. **Configure your inputs**  
+   Find the section marked `# Inputs` and update the following variables:
    ```python
    test_date = "YYYY-MM-DD"      # e.g., "2025-10-04"
    zipcode = "12345"             # your ZIP code
    state = "WA"                  # your state abbreviation
    country = "US"                # country code
-   ```
+   
+4. **Run the script**  
+   Run the script in Pyto to see available centers printed in the console.
 
-1. **Run the script**  
-   Tap the play button in Pyto to execute the script and view seat availability.
+---
 
-1. **Set up widget**  
-   Go to home screen and add new Pyto widge with the script. The widget will be refreshed with available test centers every 30 minutes by default.
+## 🔹 Option 2: Home Screen Widget (`satcenterfinderWIDGET.py`)
 
-1. **(Optional) Change widget refresh time**   
-   In the script, you may change the refresh time of the widget by changing the next reload time interval from 30 minutes to something else. 
+This version attempts to show results directly in a Pyto home screen widget.
+
+> ⚠️ **Note:** The widget version is experimental and may not work correctly depending on your device or Pyto version. Use the main script above if the widget fails to update.
+
+### Requirements
+
+- iOS device with [**Pyto** IDE](https://pyto.app)  
+- Internet access for API requests****
+
+### Setup Instructions
+
+1. **Open Pyto**
+
+2. **Create a new script** and paste in [`satcenterfinderWIDGET.py`](./satcenterfinderWIDGET.py)
+
+3. **Edit the same inputs** (`test_date`, `zipcode`, etc.)
+
+4. **Add the Pyto widget** to your home screen and select this script
+
+5. **(Optional) Adjust the widget's refresh interval**
    ```python
    wd.schedule_next_reload(timedelta(minutes=30))
-   wd.show_widget(widget)
-   ```
-   (Note: Setting the time interval to a value too small may lead to the widget not updating properly.)
+
+> Avoid very short intervals to reduce update errors.
+
+---
+
 ## Notes
 
 - The script uses public test center availability data and may be subject to rate limits or access changes.
