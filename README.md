@@ -17,7 +17,6 @@ This is the main version of the script and is compatible with any Python environ
 
 - No dependencies beyond Python 3  
 - Prints results directly to the terminal/console  
-- Works on macOS, Windows, Linux, iOS (with Python apps), and Android  
 
 ### Requirements
 
