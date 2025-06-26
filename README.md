@@ -61,8 +61,9 @@ This version attempts to show results directly in a Pyto home screen widget.
 3. **Edit the same inputs** (`test_date`, `zipcode`, etc.)
 
 4. **Add the Pyto widget** to your home screen and select this script
+   Hold down on the home screen of your iOS device. Then click "edit" in the top left then click "Add Widget". Click on Pyto for the widget and then swipe right on the options until the option "Run script" is visible. Select the size widget you want and place it where you want on the home screen.
 
-5. **(Optional) Adjust the widget's refresh interval**
+6. **(Optional) Adjust the widget's refresh interval**
    ```python
    wd.schedule_next_reload(timedelta(minutes=30))
 
