@@ -76,3 +76,4 @@ This version attempts to show results directly in a Pyto home screen widget.
 
 - The script uses public test center availability data and may be subject to rate limits or access changes.
 - Be sure to double-check availability and register on the official [College Board](https://satsuite.collegeboard.org/sat) site.
+- If you have any questions, run into issues, or have suggestions for improvements, feel free to email me at youngjinjack@gmail.com
