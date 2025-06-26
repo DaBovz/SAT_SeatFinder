@@ -61,6 +61,7 @@ This version attempts to show results directly in a Pyto home screen widget.
 3. **Edit the same inputs** (`test_date`, `zipcode`, etc.)
 
 4. **Add the Pyto widget**
+
    Hold down on the home screen of your iOS device. Then click "edit" in the top left then click "Add Widget". Click on Pyto for the widget and then swipe right on the options until the option "Run script" is visible. Select the script with [`satcenterfinderWIDGET.py`](./satcenterfinderWIDGET.py) and place it where you want in your home screen.
 
 6. **(Optional) Adjust the widget's refresh interval**
